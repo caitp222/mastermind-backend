@@ -1,24 +1,10 @@
-# README
+# Mastermind Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is still a work in progress.
 
-Things you may want to cover:
+However, once I've written the code, this will be how you can run it remotely:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- `git clone https://github.com/caitp222/mastermind-backend.git`
+- `cd mastermind-backend`
+- `rails s`
+- It will run on localhost:3000 by default.
