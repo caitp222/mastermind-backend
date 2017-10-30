@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  # users
+  resources :users, only: [:create, :show]
 
-  resources :users, :games
-  
+  # games
+  resources :games
+
+  #sessions
+  post '/sessions' => 'sessions#create'
+  delete '/sessions' => 'sessions#destroy'
+
 end
