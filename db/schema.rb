@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20171031021258) do
     t.integer "user_id", null: false
     t.boolean "finished", default: false
     t.boolean "solved", default: false
+    t.integer "guesses_remaining", default: 12
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
