@@ -10,4 +10,15 @@ class GuessesController < ApplicationController
     end
   end
 
+  def show
+    @guess = Guess.find_by(id: params[:id])
+    render json: @guess
+  end
+
+  def index
+    @game = Game.find_by(id: params[:game_id])
+    @guesses = @game.guesses
+    render json: @guesses
+  end
+
 end

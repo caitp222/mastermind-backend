@@ -3,6 +3,7 @@ class CreatePegs < ActiveRecord::Migration[5.1]
     create_table :pegs do |t|
       t.references :pegable, polymorphic: true, index: true
       t.integer :position
+      t.string :color
 
       t.timestamps
     end

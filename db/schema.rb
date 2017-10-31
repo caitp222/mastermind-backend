@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 20171031021258) do
   create_table "pegs", force: :cascade do |t|
     t.string "pegable_type"
     t.bigint "pegable_id"
+    t.integer "position"
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.index ["pegable_type", "pegable_id"], name: "index_pegs_on_pegable_type_and_pegable_id"
   end
 
