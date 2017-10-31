@@ -16,4 +16,14 @@ class PegsController < ApplicationController
     end
   end
 
+  def index
+    if params[:game_id]
+      @parent = Game.find_by(id: params[:game_id])
+    elsif params[:guess_id]
+      @parent = Guess.find_by(id: params[:guess_id])
+    end
+    @pegs = @parent.pegs
+    render json: @pegs
+  end
+
 end

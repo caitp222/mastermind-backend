@@ -6,11 +6,11 @@ Rails.application.routes.draw do
 
   resources :games, only: [:show] do
     resources :guesses, only: [:create, :index]
-    resources :pegs, only: [:create]
+    resources :pegs, only: [:create, :index]
   end
 
   resources :guesses do
-    resources :pegs, only: [:create]
+    resources :pegs, only: [:create, :index]
   end
 
   #sessions
