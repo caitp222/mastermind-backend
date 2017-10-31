@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resources :games, only: [:index, :create]
   end
 
-  resources :games, only: [:show]
+  resources :games, only: [:show] do
+    resources :guesses, only: [:create]
+  end
 
   #sessions
   post '/sessions' => 'sessions#create'
