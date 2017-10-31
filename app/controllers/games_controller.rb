@@ -4,7 +4,7 @@ class GamesController < ApplicationController
     @game = Game.new(user_id: params[:user_id])
     if @game.save
       4.times do |i|
-        @game.pegs << Peg.new(position: i, pegable_type: "Game", pegable_id: @game.id)
+        @game.pegs << Peg.new(position: i, pegable_type: "Game", pegable_id: @game.id, color: Peg::COLORS.sample)
       end
       puts @game.pegs
       render json: @game
