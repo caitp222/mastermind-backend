@@ -1,6 +1,7 @@
 class PegsController < ApplicationController
 
   def create
+    puts params
     if params[:game_id]
       @parent = Game.find_by(id: params[:game_id])
     elsif params[:guess_id]

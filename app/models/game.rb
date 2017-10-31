@@ -5,4 +5,16 @@ class Game < ApplicationRecord
 
   validates :user_id, presence: true
 
+  def guess_made
+    if self.guesses_remaining > 1
+      self.guesses_remaining -= 1
+      self.save
+    elsif self.guesses_remaining == 1
+      self.guesses_remaining -= 1
+      self.solved = true
+      self.save
+    elsif self.solved 
+    end
+  end
+
 end
