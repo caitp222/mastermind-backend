@@ -10,22 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171030190820) do
+ActiveRecord::Schema.define(version: 20171031021258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "games", force: :cascade do |t|
     t.integer "user_id", null: false
+    t.boolean "finished", default: false
     t.boolean "solved", default: false
-    t.integer "guesses"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "guesses", force: :cascade do |t|
+    t.integer "game_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pegs", force: :cascade do |t|
+    t.string "pegable_type"
+    t.bigint "pegable_id"
+    t.index ["pegable_type", "pegable_id"], name: "index_pegs_on_pegable_type_and_pegable_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
-    t.string "password_digest"
+    t.string "hashed_password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
