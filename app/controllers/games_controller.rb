@@ -3,6 +3,9 @@ class GamesController < ApplicationController
   def create
     @game = Game.new(user_id: params[:user_id])
     if @game.save
+      4.times do |i|
+        self.pegs << Peg.new(position: i, pegable_type: "Game", pegable_id: self.id)
+      end
       render json: @game
     else
       status 422
