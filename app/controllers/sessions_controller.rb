@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       render json: user
     else
       status 422
-      render json: {errors: "Username or password is incorrect."}
+      render json: {error: "Username or password is incorrect."}
     end
   end
 
