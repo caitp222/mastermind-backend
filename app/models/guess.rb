@@ -9,8 +9,18 @@ class Guess < ApplicationRecord
     self.game.compare_hash == self.compare_hash
   end
 
+  def feedback
+    if !self.correct?
+      return {correct_colors: self.correct_colors, correct_positions: self.correct_positions}
+    end
+  end
+
   private
   def correct_colors
     
+  end
+
+  def correct_positions
+
   end
 end
