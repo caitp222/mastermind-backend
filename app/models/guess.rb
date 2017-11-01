@@ -5,7 +5,12 @@ class Guess < ApplicationRecord
 
   include CompareHelpers
 
-  def compare
+  def correct?
     self.game.compare_hash == self.compare_hash
+  end
+
+  private
+  def correct_colors
+    
   end
 end

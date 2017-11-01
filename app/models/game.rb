@@ -9,15 +9,11 @@ class Game < ApplicationRecord
 
   def guess_downcount
     if !self.solved
-      if self.guesses_remaining > 1 &&
-        self.guesses_remaining -= 1
-        self.save
-      elsif self.guesses_remaining == 1
-        self.guesses_remaining -= 1
+      self.guesses_remaining -= 1
+      if self.guesses_remaining == 0
         self.solved = true
-        self.save
       end
-    elsif self.solved
+      self.save
     end
   end
 
